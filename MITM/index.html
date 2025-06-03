@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simulasi Serangan Man-in-the-Middle pada Diffie-Hellman</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <h1>🔐 Simulasi Serangan Man-in-the-Middle</h1>
+        <p>Pada Protokol Diffie-Hellman Key Exchange</p>
+      </div>
+
+      <div class="warning">
+        ⚠️ PERINGATAN: Simulasi ini hanya untuk tujuan edukasi dan penelitian
+        keamanan!
+      </div>
+
+      <div class="participants">
+        <div class="participant lita">
+          <h3>👩‍💻 Lita</h3>
+          <div class="key-info">
+            <div>Private Key: <span id="lita-private">-</span></div>
+            <div>Public Key: <span id="lita-public">-</span></div>
+            <div>Shared Secret: <span id="lita-secret">-</span></div>
+          </div>
+        </div>
+
+        <div class="participant attacker">
+          <h3>🕵️ Ifan<br />Attacker</h3>
+        </div>
+
+        <div class="participant rahma">
+          <h3>👨‍💻 Rahma</h3>
+          <div class="key-info">
+            <div>Private Key: <span id="rahma-private">-</span></div>
+            <div>Public Key: <span id="rahma-public">-</span></div>
+            <div>Shared Secret: <span id="rahma-secret">-</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="controls">
+        <button class="btn" id="step1" onclick="initializeParticipants()">
+          🔑 1. Inisialisasi Kunci
+        </button>
+        <button class="btn" id="step2" onclick="performMITMAttack()" disabled>
+          🚨 2. Serangan MITM
+        </button>
+        <button class="btn" id="step3" onclick="exchangeMessages()" disabled>
+          💬 3. Tukar Pesan
+        </button>
+        <button class="btn" onclick="reset()">🔄 Reset</button>
+      </div>
+
+      <div class="simulation-log" id="log">
+        <div class="log-entry log-info">
+          📋 Simulasi siap dimulai. Klik tombol "Inisialisasi Kunci" untuk
+          memulai.
+        </div>
+      </div>
+
+      <div id="communication-area" style="display: none">
+        <h3>📡 Area Komunikasi</h3>
+        <div class="communication">
+          <div class="message-box" id="lita-message">
+            <h4>📤 Pesan dari Lita:</h4>
+            <div id="lita-msg-content">-</div>
+          </div>
+          <div class="arrow">⟷</div>
+          <div class="message-box" id="rahma-message">
+            <h4>📥 Pesan yang diterima Rahma:</h4>
+            <div id="rahma-msg-content">-</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="stats">
+        <div class="stat-card">
+          <div class="stat-value" id="messages-intercepted">0</div>
+          <div>Pesan Dicegat</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value" id="keys-compromised">0</div>
+          <div>Kunci Dikompromikan</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value" id="attack-success">0%</div>
+          <div>Tingkat Keberhasilan</div>
+        </div>
+      </div>
+
+      <div class="footer">
+        <p>🔬 Simulasi Keamanan Siber - Diffie-Hellman MITM Attack</p>
+        <p>Dibuat untuk tujuan edukasi dan penelitian keamanan</p>
+      </div>
+    </div>
+
+    <script src="javascript.js"></script>
+  </body>
+</html>
