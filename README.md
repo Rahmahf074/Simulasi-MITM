@@ -1,49 +1,51 @@
 Simulasi Serangan Man-in-the-Middle pada Protokol Diffie-Hellman
+
 DISUSUN OLEH:
 Kelompok 16
-1.	Herlita				(G1A023018)
+1.	Herlita				            (G1A023018)
 2.	Muhammad Sahlan Habibi		(G1A023058)
-3.	Revialdi Rifqi Ramadhan P		(G1A023066)
-4.	Rahma Hidayati Fitrah		(G1A023074)
+3.	Revialdi Rifqi Ramadhan P	(G1A023066)
+4.	Rahma Hidayati Fitrah		  (G1A023074)
 5.	M. Ihtifanul Montaghib		(G1A023094)
+
 DOSEN PENGAMPU: Kurnia Anggriani, S.T., M.T., Ph.D
 
-Tujuan Penelitian
-Mengimplementasikan simulasi serangan MITM pada protokol Diffie-Hellman
+**Tujuan Penelitian**
+  Mengimplementasikan simulasi serangan MITM pada protokol Diffie-Hellman
 Menganalisis dampak serangan terhadap keamanan komunikasi
 Memberikan rekomendasi pencegahan
 
-Konsep Dasar yang Harus Dipahami
-Protokol Diffie-Hellman
-Fungsi Utama: Pertukaran kunci rahasia melalui saluran komunikasi terbuka
-Prinsip Matematika: Berdasarkan aritmetika modular dan masalah logaritma diskrit
-Parameter Kunci:
-p = 23 (bilangan prima sebagai modulus)
-g = 5 (generator)
+**Konsep Dasar yang Harus Dipahami**
+1. Protokol Diffie-Hellman
+      Fungsi Utama: Pertukaran kunci rahasia melalui saluran komunikasi terbuka
+   Prinsip Matematika: Berdasarkan aritmetika modular dan masalah logaritma diskrit
+   Parameter Kunci:
+   p = 23 (bilangan prima sebagai modulus)
+   g = 5 (generator)
 
-Keunggulan: Tidak perlu pertukaran kunci secara langsung
-Kelemahan Fatal: Tidak ada mekanisme autentikasi identitas
+   Keunggulan: Tidak perlu pertukaran kunci secara langsung
+   Kelemahan Fatal: Tidak ada mekanisme autentikasi identitas
 
-Serangan Man-in-the-Middle (MITM)
-Definisi: Penyerang menyusup dalam komunikasi antara dua pihak yang sah
-Mekanisme: Penyerang berpura-pura menjadi masing-masing pihak kepada lawan bicaranya
-Dampak: Semua komunikasi dapat disadap, dibaca, dan dimodifikasi tanpa terdeteksi
+2. Serangan Man-in-the-Middle (MITM)
+   Definisi: Penyerang menyusup dalam komunikasi antara dua pihak yang sah
+   Mekanisme: Penyerang berpura-pura menjadi masing-masing pihak kepada lawan bicaranya
+   Dampak: Semua komunikasi dapat disadap, dibaca, dan dimodifikasi tanpa terdeteksi
 
-Implementasi Teknis
+**Implementasi Teknis**
 Arsitektur Sistem
 Lita (Client A) ←→ Ifan (Attacker) ←→ Rahma (Client B)
 Tiga Fase Serangan
 
-Fase Inisialisasi:
+1. Fase Inisialisasi:
 Generate parameter DH (p=23, g=5)
 Buat kunci privat dan publik untuk setiap peserta
 
-Fase Serangan MITM:
+2. Fase Serangan MITM:
 Attacker mencegat public key dari kedua client
 Attacker mengirim fake public key kepada masing-masing peserta
 Attacker menghitung dua shared secret berbeda
 
-Fase Pertukaran Pesan:
+3. Fase Pertukaran Pesan:
 Attacker mendekripsi pesan dengan shared secret pengirim
 Attacker membaca isi pesan
 Attacker mengenkripsi ulang dengan shared secret penerima
@@ -53,7 +55,7 @@ Frontend: HTML5, CSS3, JavaScript
 Algoritma Enkripsi: XOR Cipher (untuk demonstrasi)
 Metode Perhitungan: Eksponensial modular
 
-3. Hasil Pengujian Kritis
+**Hasil Pengujian Kritis**
 Tingkat Keberhasilan Serangan
 Keberhasilan Intersepsi: 100%
 Tingkat Deteksi oleh Korban: 0%
@@ -67,11 +69,7 @@ Waktu Enkripsi/Dekripsi: 0.5-1 milidetik
 Penggunaan Memori: ~1KB
 Penggunaan CPU: ~0.1%
 
-4. Analisis Kelemahan Sistem
-Kelemahan Fundamental
-
-ambil dari word
-
+**Analisis Kelemahan Sistem**
 Kelemahan Implementasi
 Parameter p terlalu kecil (p=23): Rentan brute force
 XOR Cipher tidak aman: Hanya untuk demonstrasi
@@ -103,7 +101,7 @@ Mutual Authentication
 Certificate Pinning
 Quantum-resistant algorithms (persiapan masa depan)
 
-7. Kesimpulan Utama
+**Kesimpulan Utama**
 Efisiensi vs Keamanan
 Efisiensi: Sangat tinggi (cocok untuk simulasi pembelajaran)
 Keamanan: Sangat rendah (tidak layak untuk implementasi nyata)
